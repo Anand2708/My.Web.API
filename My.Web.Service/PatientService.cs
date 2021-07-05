@@ -15,10 +15,8 @@ namespace My.Web.Service
         {
             this.patientRepository = patientRepository;
         }
-        public async Task<Patient> GetPatientbyId(int? PatientId)
+        public async Task<Patient> GetPatientbyId(long PatientId)
         {
-            if (PatientId == null) { throw new Exception("Patient Id is null"); }
-
             if (PatientId <= 0) { throw new Exception("Invalid Patient Id"); }
 
             var result = await patientRepository.GetPatientbyId(PatientId);

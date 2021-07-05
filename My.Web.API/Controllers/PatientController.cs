@@ -18,7 +18,7 @@ namespace My.Web.API.Controllers
     public class PatientController : ControllerBase
     {
         private readonly IPatientService patientService;
-        private readonly ILoggerManager logger;
+       // private readonly ILoggerManager logger;
 
         public PatientController(IPatientService patientService)
         {
@@ -26,8 +26,8 @@ namespace My.Web.API.Controllers
             //this.logger = logger;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetPatientbyId(int? PatientId)
+        [HttpGet("GetPatientbyId/{PatientId}"), Authorize]
+        public async Task<IActionResult> GetPatientbyId(long PatientId)
         {
             //logger.LogInfo("Fetching the Patient from the storage by PatientId");
             var result = await patientService.GetPatientbyId(PatientId);
@@ -36,7 +36,7 @@ namespace My.Web.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
+        [HttpGet("GetPatientDetails")]
         [Authorize]
         public async Task<ActionResult<Patient[]>> GetPatientDetails()
         {

@@ -8,7 +8,7 @@ namespace My.Web.Service
 {
     public interface IPatientService
     {
-        Task<Patient> GetPatientbyId(int? PatientId);
+        Task<Patient> GetPatientbyId(long PatientId);
         Task<IEnumerable<Patient>> GetPatientDetails();
     }
 }
