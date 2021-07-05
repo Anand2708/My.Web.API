@@ -16,9 +16,9 @@ namespace My.Web.Repository
         {
             this.patientDbContext = patientDbContext;
         }
-        public async Task<Patient> GetPatientbyId(int? PatientId)
+        public async Task<Patient> GetPatientbyId(long PatientId)
         {
-            var result = await patientDbContext.Patients.FindAsync(PatientId);
+            var result = await patientDbContext.Patients.SingleOrDefaultAsync(p => p.PatientId == PatientId);
             return result;
         }
 

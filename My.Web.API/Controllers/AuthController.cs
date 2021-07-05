@@ -25,8 +25,8 @@ namespace My.Web.API.Controllers
             this.configuration = configuration;
         }
 
-        [HttpGet, Authorize]
-        public IEnumerable<string> Get()
+        [HttpGet("GetUser")]
+        public IEnumerable<string> GetUser()
         {
             return new string[] { "John Doe", "Jane Doe" };
         }

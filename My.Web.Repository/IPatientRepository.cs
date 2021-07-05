@@ -8,7 +8,7 @@ namespace My.Web.Repository
 {
     public interface IPatientRepository
     {
-        Task<Patient> GetPatientbyId(int? PatientId);
+        Task<Patient> GetPatientbyId(long PatientId);
         Task<IEnumerable<Patient>> GetPatientDetails();
 
         Task<bool> SaveChangesAsync();
